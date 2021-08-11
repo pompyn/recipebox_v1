@@ -18,3 +18,9 @@ def author_detail(request, id):
     author = Author.objects.get(id=id)
     recipes = Recipe.objects.filter(author=author)
     return render(request, 'author_detail.html', {'author': author, 'recipes': recipes})
+
+def addauthor(request):
+    pass
+
+def addrecipe(request):
+    pass
