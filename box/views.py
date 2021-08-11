@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from box.models import Recipe, Author
-
+from box.forms import AddRecipeForm
 # Create your views here.
 
 
@@ -19,8 +19,11 @@ def author_detail(request, id):
     recipes = Recipe.objects.filter(author=author)
     return render(request, 'author_detail.html', {'author': author, 'recipes': recipes})
 
+
 def add_author(request):
     pass
 
+
 def add_recipe(request):
-    pass
+    form = AddRecipeForm(request.POST)
+    return render(request, 'add_recipe.html', {"form": form})
