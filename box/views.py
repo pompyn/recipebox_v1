@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect, reverse
 from box.models import Recipe, Author
 from box.forms import AddRecipeForm
 # Create your views here.
@@ -29,6 +29,6 @@ def add_recipe(request):
         if form.is_valid():
             data = form.cleaned_data
             recipe = Recipe.objects.create(title =data['title'], author = data['author'], description = data['description'], time_required = data['time_required'], instructions = data['instructions'] )
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect(reverse('homepage'))
     form = AddRecipeForm()
     return render(request, 'add_recipe.html', {'form':form})
