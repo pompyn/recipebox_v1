@@ -21,5 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('author/<int:id>/',views.author_detail, name='author'),
     path('recipe/<int:id>/',views.recipe_detail, name='recipe'),
+    path('addrecipe/', views.add_recipe),
+    path('addauthor/', views.add_author),
     path('', views.index_view, name='homepage'),
 ]
