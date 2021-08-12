@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect
 from box.models import Recipe, Author
 from box.forms import AddRecipeForm
 # Create your views here.
@@ -23,7 +23,6 @@ def author_detail(request, id):
 def add_author(request):
     pass
 
-
 def add_recipe(request):
-    form = AddRecipeForm(request.POST)
-    return render(request, 'add_recipe.html', {"form": form})
+    form = AddRecipeForm()
+    return render(request, 'add_recipe.html', {'form':form})
