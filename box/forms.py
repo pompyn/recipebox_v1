@@ -2,8 +2,11 @@ from django import forms
 from box.models import Author, Recipe
 
 
-class AddAuthorForm(forms.Form):
-    pass
+class AddAuthorForm(forms.ModelForm):
+    class Meta:
+        model = Author
+        fields = ['name', 'bio']
+
 
 
 class AddRecipeForm(forms.Form):
