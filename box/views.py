@@ -29,6 +29,6 @@ def add_recipe(request):
         if form.is_valid():
             data = form.cleaned_data
             recipe = Recipe.objects.create(title =data['title'], author = data['author'], description = data['description'], time_required = data['time_required'], instructions = data['instructions'] )
+            return HttpResponseRedirect('/')
     form = AddRecipeForm()
-    form = AddRecipeForm(request.POST)
     return render(request, 'add_recipe.html', {'form':form})
